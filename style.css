@@ -1,0 +1,21 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+#container {
+    flex: 1;
+    display: flex;
+}
+
+.number, .operator {
+    color: blue;
+}
+
+footer {
+    flex-shrink: 0;
+}
