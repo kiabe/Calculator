@@ -30,9 +30,15 @@ body {
     align-items: center;
 }
 
+/* .row {
+    display: flex;
+} */
+
 .number, .operator, #decimal, #equal, #allClear {
     color: red;
     margin: 6px;
+    /* width makes all buttons uniform */
+    width: 60px;
 }
 
 footer {
