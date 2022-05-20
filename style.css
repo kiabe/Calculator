@@ -22,6 +22,9 @@ body {
     border-style: double;
     display: flex;
     flex-direction: row-reverse;
+    height: 40px;
+    font-size: 2rem;
+    margin-bottom: 10px;
 }
 
 #body {
@@ -29,10 +32,6 @@ body {
     flex-direction: column;
     align-items: center;
 }
-
-/* .row {
-    display: flex;
-} */
 
 .number, .operator, #decimal, #equal, #allClear {
     color: red;
