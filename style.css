@@ -26,10 +26,11 @@ body {
 
 #body {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
-.number, .operator, #equal, #allClear {
+.number, .operator, #decimal, #equal, #allClear {
     color: red;
     margin: 6px;
 }
