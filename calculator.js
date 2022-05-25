@@ -28,31 +28,35 @@ function operate(operator, num1, num2) {
     };
 };
 
-function clearAll() {}
+// upon button click, clear display and set back to default 0
+function clearAll() {
+    display.textContent = '0';
+}
 
 function clearNumber() {}
 
 // constants for DOM manipulation
 const display = document.querySelector('#display');
-console.log(display);
-display.textContent = '0';
+display.textContent = '0'; // sets initial display on calculator to 0 like a physical calculator
+
+const allClear = document.querySelector('#allClear'); 
+
+const numberPad = document.querySelectorAll('.number'); // selects all buttons relevant to putting on display: 0-9 and decimal point
 
 // functions for calculator
 
-// upon button clicks, updates display
-function updateDisplay(e) {
-    // let newDisplay = e.target.textContent;
-    // console.log(newDisplay);
-    // display.textContent = newDisplay;
-}
+// buttons 0-9 and '.' will update calculator display field on click
+numberPad.forEach((number) => {
+    number.addEventListener('click', (e) => {
+        console.log(e);
+        console.log(e.target)
+        // textContent will be method of extracting content of buttons on click
+        console.log(e.target.textContent);
+        let newDisplay = e.target.textContent;
+        console.log(newDisplay);
+        display.textContent += newDisplay;
+    });
+});
 
-
-window.addEventListener('click', (e) => {
-    console.log(e);
-    console.log(e.target)
-    // textContent will be method of extracting content of buttons on click
-    console.log(e.target.textContent);
-    let newDisplay = e.target.textContent;
-    console.log(newDisplay);
-    display.textContent = newDisplay;
-})
+// click on AC button will clear current display field and reset to initial display of 0
+allClear.addEventListener('click', clearAll);
