@@ -33,14 +33,19 @@ function clearAll() {
     display.textContent = '0';
 }
 
-function clearNumber() {}
+function addDecimal() {
+    if (!display.textContent.includes('.')) {
+    display.textContent += '.';
+    };
+};
 
 // constants for DOM manipulation
 const display = document.querySelector('#display');
 display.textContent = '0'; // sets initial display on calculator to 0 like a physical calculator
 
 const allClear = document.querySelector('#allClear'); // AC button
-const numberPad = document.querySelectorAll('.number'); // selects all buttons relevant to putting on display: 0-9 and decimal point
+const numberPad = document.querySelectorAll('.number'); // selects all buttons relevant to putting on display: 0-9
+const decimalPoint = document.querySelector('#decimal');
 const operatorButtons = document.querySelectorAll('.operator'); // selects operators
 const equalButton = document.querySelector('#equal'); // equal button
 
@@ -64,6 +69,8 @@ numberPad.forEach((number) => {
     });
 });
 
+decimalPoint.addEventListener('click', addDecimal);
+
 // click on AC button will clear current display field and reset to initial display of 0
 allClear.addEventListener('click', clearAll);
 
@@ -73,3 +80,4 @@ let calc = {
     operator: undefined,
     operand2: 6
 };
+
