@@ -54,10 +54,7 @@ const equalButton = document.querySelector('#equal'); // equal button
 // buttons 0-9 and '.' will update calculator display field on click
 numberPad.forEach((number) => {
     number.addEventListener('click', (e) => {
-        console.log(e);
-        console.log(e.target)
         // textContent will be method of extracting content of buttons on click
-        console.log(e.target.textContent);
         let newDisplay = e.target.textContent;
         console.log(newDisplay);
         let currentNum = display.textContent; // defaults at 0
@@ -69,6 +66,22 @@ numberPad.forEach((number) => {
     });
 });
 
+operatorButtons.forEach((operator) => {
+    operator.addEventListener('click', e => {
+        const key = e.target;
+        const action = key.dataset.action;
+        if (
+            action === 'add' ||
+            action === 'subtract' ||
+            action === 'multiply' ||
+            action === 'divide'
+            ) {
+                console.log('operator key pressed');
+            }
+    });
+});
+
+// adds decimal point to number
 decimalPoint.addEventListener('click', addDecimal);
 
 // click on AC button will clear current display field and reset to initial display of 0
