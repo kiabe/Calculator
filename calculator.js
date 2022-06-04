@@ -33,6 +33,10 @@ function clearAll() {
     display.textContent = '0';
 }
 
+function clearClass() {
+
+}
+
 function addDecimal() {
     if (!display.textContent.includes('.')) {
     display.textContent += '.';
@@ -40,6 +44,7 @@ function addDecimal() {
 };
 
 // constants for DOM manipulation
+const calculator = document.querySelector('#container'); // display and buttons
 const display = document.querySelector('#display');
 display.textContent = '0'; // sets initial display on calculator to 0 like a physical calculator
 
@@ -55,16 +60,22 @@ const equalButton = document.querySelector('#equal'); // equal button
 numberPad.forEach((number) => {
     number.addEventListener('click', (e) => {
         // textContent will be method of extracting content of buttons on click
-        let newDisplay = e.target.textContent;
+        let newDisplay = e.target.textContent; // the new number when number pad buttons are pressed
         console.log(newDisplay);
-        let currentNum = display.textContent; // defaults at 0
-        if (currentNum === '0') {
+        let currentNum = display.textContent; // defaults at 0 and when typing, is the current num seen on display
+        console.log(currentNum);
+        const previousKeyType = calculator.dataset.previousKeyType;
+        if (currentNum === '0' || previousKeyType === 'operator') {
             display.textContent = newDisplay;
+            console.log(currentNum);
+            calculator.removeAttribute('data-previous-key-type')
         } else {
             display.textContent = currentNum + newDisplay;
+            console.log(currentNum);
         };
     });
 });
+
 
 operatorButtons.forEach((operator) => {
     operator.addEventListener('click', e => {
@@ -77,6 +88,9 @@ operatorButtons.forEach((operator) => {
             action === 'divide'
             ) {
                 console.log('operator key pressed');
+                calculator.dataset.previousKeyType = 'operator';
+                calculator.dataset.firstValue
+                calculator.dataset.operator = action;
             }
     });
 });
