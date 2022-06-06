@@ -34,7 +34,11 @@ function operate(operator, num1, num2) {
     } else if (operator === 'divide' || operator === '/') {
         result = divide(n1, n2);
     }
-    return result;
+    if (result.length <= 19) {
+        return result;
+    } else {
+        return result.toExponential(3);
+    }
 };
 
 // upon button click, clear display and set back to default 0
@@ -84,8 +88,10 @@ buttons.forEach((button) => {
                     display.textContent = keyContent;
                     calculator.dataset.previousKeyType = 'number';
                     clearClass();
-                } else {
+                } else if (display.textContent.length < 19) {
                     display.textContent = currentNum + keyContent;
+                } else {
+                    display.textContent;
                 }
             };
 
