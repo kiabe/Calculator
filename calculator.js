@@ -8,11 +8,15 @@ function subtract(a,b) {
 };
 
 function multiply(a,b) {
-    return a * b;
+    return Math.round(a * b * 100) / 100;
 };
 
 function divide(a,b) {
-    return a / b;
+    if (b === 0) {
+        return 'ERROR'
+    } else {
+        return Math.round(a / b * 100) / 100;
+    }
 };
 
 // function that calls the basic functions when given 2 nums and an operator
@@ -133,7 +137,7 @@ buttons.forEach((button) => {
                 const firstOperand = calculator.dataset.firstValue; // first number saved before getitng cleared to display the second number
                 const secondOperand = currentNum; // second number is what the current display shows
                 const operator = calculator.dataset.operator; // operator is saved based on the operator key that is pressed
-                
+
                 display.textContent = operate(operator, firstOperand, secondOperand);
                 calculator.dataset.previousKeyType = 'calculate';
                 clearOperator();
