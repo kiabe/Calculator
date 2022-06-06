@@ -33,6 +33,7 @@ body {
     padding: 5px;
     width: 310px;
     border-radius: 10px;
+    border-width: 6px;
     background-color: antiquewhite;
 }
 
@@ -49,6 +50,7 @@ body {
     padding: 5px;
     border-style: double;
     border-radius: 10%;
+    border-width: 6px;
     background-color: rgb(134, 134, 134);
 }
 
