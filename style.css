@@ -32,6 +32,8 @@ body {
     margin-bottom: 10px;
     padding: 5px;
     width: 310px;
+    border-radius: 10px;
+    background-color: antiquewhite;
 }
 
 #calculatorBody {
@@ -46,13 +48,27 @@ body {
     width: 310px;
     padding: 5px;
     border-style: double;
+    border-radius: 10%;
+    background-color: rgb(134, 134, 134);
 }
 
 .number, .operator, #decimal, #equal, #allClear {
-    color: red;
     margin: 6px;
     /* width makes all buttons uniform */
     width: 60px;
+    border-radius: 10px;
+    font-size: large;
+    font-weight: bold;
+}
+
+.number, .operator, #decimal {
+    background-color: rgb(207, 205, 205);
+    color: rgb(57, 53, 201);
+}
+
+#equal, #allClear {
+    background-color: rgb(255, 40, 40);
+    color: white;
 }
 
 footer {
