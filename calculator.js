@@ -34,7 +34,8 @@ function operate(operator, num1, num2) {
     } else if (operator === 'divide' || operator === '/') {
         result = divide(n1, n2);
     }
-    if (result.length <= 19) {
+    if (result.toString().length <= 19) {
+        console.log(result.length);
         return result;
     } else {
         return result.toExponential(3);
